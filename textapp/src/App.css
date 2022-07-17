@@ -1,0 +1,67 @@
+body {
+  text-align: center;
+  background-color: #282c34;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+
+}
+
+.input-text-block{
+  /* margin: auto; */
+  height: 50px;
+  width: 40%;
+  background-color: white;
+}
+
+.output-container {
+  margin:auto;
+  width: 850px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.output-text-block {
+  /* margin: 10px; */
+  color: black;
+  min-height: 80px;
+  width: 400px;
+  background-color: white;
+  text-align: center;
+  
+}
+
+.output-explanation{
+  background-color: #282c34;
+  position:relative;
+}
+
+.btn{
+  margin-top:20px;
+  width:90px;
+  height:30px;
+}
+
+
+
+/* .App-header {
+ 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
