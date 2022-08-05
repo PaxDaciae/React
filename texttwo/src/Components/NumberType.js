@@ -29,17 +29,13 @@ import { useState } from 'react'
 function ThrupletName({ number }) {
 
   let outcome = '';
-  let lungime = 0;
-  const workingNumber = [];
+  const workingNumber = Array.from(String(number), Number);
 
-  for (let item in number) {
-    workingNumber.push(item)
-    lungime +=1
-  }
+  const lungime = workingNumber.length
 
-  if (lungime == 0) return;
-  else outcome = lungime;
+  if (lungime == 0) {return} else {outcome = lungime};
 
+  // console.log(outcome)
   return outcome
 
 }

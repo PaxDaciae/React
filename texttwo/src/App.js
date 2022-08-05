@@ -4,71 +4,29 @@ import Header from './Components/Header'
 import ThrupletName from './Components/NumberType';
 import InterpretNumbers from './Components/InterpretNumber';
 
-
-
-
-
 function App() {
 
-    // State pentru numar si increase/decrease.
-  const [numberState, setNumberState] = useState( 0 )
-  const number = numberState;
-  
-    // Array pentru numere si numele numerelor.
-  const [textState, setTextState] = useState([
-    { id: 0, name:'Zero' },
-    { id: 1, name:'Unu' },
-    { id: 2, name:'Doi' },
-    { id: 3, name:'Trei' },
-    { id: 4, name:'Patru' },
-    { id: 5, name:'Cinci' },
-    { id: 6, name:'Sase' },
-    { id: 7, name:'Sapte' },
-    { id: 8, name:'Opt' },
-    { id: 9, name:'Noua' },
-    { id: 10, name:'Zece' },
-    // { id: 10, name: 'Zece' },
-  ])
+  const [numberState, setNumberState] = useState( {number: 0} )
+  const number = numberState.number;
 
-  
-    // Partea functionala pentru counter.
-  const text = textState;
-  const numberInput = number;
+  function useNumber () {
+    
+    setNumberState(prevState => { return {...prevState, number: parseInt(document.getElementById('numberInput').value)}})
 
-  function increase() {
-    setNumberState( numberState + 1)
+    
   }
-  function decrease() {
-    setNumberState( numberState - 1)
-  }
-
-    // Partea functionala pentru transcrierea friecarui nr in cuvinte.
-
-    function numberToText() {
-      const selectedNumber = (textState.find(textState => textState.id === numberState)).name
-      const numberComponents = [...selectedNumber]
-      return numberComponents.join("")
-      // console.log(numberState)
-      // return console.log("nr este:", selectedNumber)
-    }
-  let toArray = num => Number(num);
-  const intArray = Array.from(String(number), toArray)
-  console.log("array:", intArray)
 
   return (
     <div className="App">
-      <p>ThrupletName:</p>
-      <ThrupletName number = { intArray }/>
-      <p>Header:</p>
-      <Header number = { number }/>
-      <p>InterpretNumbers:</p>
-      <InterpretNumbers number = { intArray } />
-      <button type = 'button' onClick = { increase }></button>
-      <button type = 'button' onClick = { decrease }></button>
-      <button type = 'button' onClick = { numberToText }>Find Text</button>
-      <p>{numberToText()}</p>
-      
+      <h1> Please use a maximum of 16 characters </h1>
 
+      <input id = 'numberInput' type = 'text' placeholder = 'Input number here' defaultValue = {0} ></input>
+      <button type = 'button' onClick = { useNumber }> Submit number </button>
+      <Header />
+      {/* <h2> Lungime: <ThrupletName number = { number }/> </h2> */}
+      {/* <ThrupletName number = {number}/> */}
+      <h2 style ={{ color: 'yellow', width: 800 }}> <InterpretNumbers number = { number }/> </h2> 
+     
     </div>
   );
 }
