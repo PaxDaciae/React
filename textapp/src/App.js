@@ -14,11 +14,10 @@ function App() {
   // This one adds the string in input field to the text
   function addText () {
 
-    setInputText(prevState => { return {lastText: document.getElementById('text-input').value, text: prevState.text + " " + document.getElementById('text-input').value }})    
-    function reset() {
-      document.getElementById('text-input').value = null;
-    }
-    // setTimeout(reset(), 1000);
+    var input = document.getElementById('text-input').value
+    setInputText(prevState => { return {lastText: input, text: prevState.text + " " + input }})    
+    document.getElementById('text-input').value = null;
+  
   }
 
   // This function removes the last character our of the text field & last input field.
@@ -60,8 +59,8 @@ function App() {
         <button type = "button" className = 'btn' onClick = { removeLast }>Remove Last Text</button>
 
         <div>
-        <p>{`Text: ${ inputText.text }`}</p>
         <p> Last Text: {`${ inputText.lastText }`}</p>
+        <p>{`Text: ${ inputText.text }`}</p>
         </div>
        
         
