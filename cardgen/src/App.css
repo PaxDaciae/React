@@ -9,33 +9,64 @@ body {
     /* background-repeat: no-repeat; */
 }
 
+.vertical-space {
+    height: 20vh;
+}
 .app-container {
 
     text-align: center;
     margin:auto;
 
-    min-width: 150px;
-    max-width: 30%;
-    min-height: 200px;
-    max-height: 40%;
+    width: 200px;
+    height: 260px;
     /* border-style: solid;
     border-width: 5px;
     border-color: black;
-    border-radius: 10px; */
+    border-radius: 10px;     */
     
+}
+
+.center-container {
+    text-align: center;
+}
+.button {
+    /* margin: auto; */
 }
 
 .card-output {
 
-    min-width: 180px;
-    max-width: 70%;
-    min-height: 350px;
-    max-height: 50%;
-
+    text-align: center;
+    width: 150px;
+    height: 200px;
     margin:auto;
 
+} 
+
+.cardMargin {
+
+}
+
+.backgroundColor-red {
+    background-color: white;
+    min-height:100%;
+    min-width: 100%;
+
     border-style: solid;
-    border-width: 2px;
+    border-width: 10px;
+    border-color: red;
+    border-radius: 10px;
+
+    margin:auto;
+}
+.backgroundColor-black {
+    background-color: white;
+    min-height:100%;
+    min-width: 100%;
+
+    border-style: solid;
+    border-width: 10px;
     border-color: black;
     border-radius: 10px;
+
+    margin:auto;
 }
