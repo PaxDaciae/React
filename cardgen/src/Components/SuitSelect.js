@@ -11,9 +11,11 @@ const SuitSelect = ( {props} ) =>{
 
     const path = returnSuit(props)
 
-    return <div>
+    return (
+    <div>
             <img src={require(`${path}`)} height={"50"} width={"50"} alt=""/>
     </div>
+    )
 
 }
 export default SuitSelect

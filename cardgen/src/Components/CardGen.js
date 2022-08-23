@@ -1,3 +1,6 @@
+import SuitSelect from './SuitSelect';
+
+
  const CardGen = ( {props} ) => {
    const color = props[0]
    const suit = props[1]
@@ -12,23 +15,25 @@
    }
 
    const isBackgroundRed = isBackgroundColorRed(color)
-   console.log(isBackgroundRed)
+   // console.log(isBackgroundRed)
 
    //  style = {{backgroundColor: `${color}`}}
 
-   return <div className = {isBackgroundRed? 'backgroundColor-red' : 'backgroundColor-black'}> 
+   return (
+   <div className = {isBackgroundRed? 'backgroundColor-red' : 'backgroundColor-black'}> 
       <p>
          <br />
          {color}
          {/* {props} */}
       </p>
       <p>
-      {suit}
+      <SuitSelect props={ suit } />
       </p>
       <p>
       {number}
       </p>
    </div>
+   )
  }
 
   export default CardGen

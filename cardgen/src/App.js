@@ -1,16 +1,17 @@
 import './App.css';
 import { useState } from 'react'
 import CardGen from './Components/CardGen';
-import SuitSelect from './Components/SuitSelect';
+// import SuitSelect from './Components/SuitSelect';
 // import Hearts from '/Components/images';
 
 function App() {
-
+  console.log("FUNCTION APP STARTS")
   
   const [card, setCardState] = useState( {color: '', suit: '', number: 0} );  
  
   // This function returns a random number between 1 and "nr"
   function generateNumberArray() {
+    console.log("FUNCTION GEN_NUMB_ARRAY")
     function generateNumber(nr) {
       const numberOut = (Math.floor(Math.random() * nr) + 1);
       return numberOut
@@ -53,21 +54,20 @@ function App() {
     // This function transforms temporaryArray.color into a string describing the color
     const finalColor = function(temporaryArray) {
       const element = colorHardcodes.find(colorHardcodes => colorHardcodes.ID === temporaryArray.color)
-      console.log("finalColorelement:", element)
+      // console.log("finalColorelement:", element)
       return element.color
     }
     finalArray.color = finalColor(temporaryArray)
   
     // This function transforms temporaryArray.suit and finalArray.color into a string describing the suit
     const finalSuit = function(temporaryArray){
-      const element = suitHardcodes.find(suitHardcodes => (suitHardcodes.color === finalArray.color &&
-         suitHardcodes.ID === temporaryArray.suit))
-         console.log("finalSuitElement:", element)
-      console.log("Colors:", suitHardcodes, suitHardcodes.color, finalArray.color)
-      console.log(suitHardcodes.color === finalArray.color)
+      const element = suitHardcodes.find(suitHardcodes => (suitHardcodes.color === finalArray.color && suitHardcodes.ID === temporaryArray.suit))
+        //  console.log("finalSuitElement:", element)
+      // console.log("Colors:", finalArray.color)
+      // console.log(suitHardcodes.color === finalArray.color)
 
-      console.log("Suits:", suitHardcodes.ID, temporaryArray.suit)
-      console.log(suitHardcodes.ID === temporaryArray.suit)
+      // console.log("Suits:", temporaryArray.suit)
+      // console.log(suitHardcodes.ID === temporaryArray.suit)
       return element.suit
     }
     finalArray.suit = finalSuit(temporaryArray)
@@ -75,19 +75,23 @@ function App() {
     // This function transforms temporaryArray.value into a string describing the number on the card
     const finalNumber = function(temporaryArray){
       const element = numberHardcodes.find(numberHardcodes => (numberHardcodes.ID === temporaryArray.value))
-      console.log("FinalNumberElement:", element)
+      // console.log("FinalNumberElement:", element)
       return element.number
     }
     finalArray.number = finalNumber(temporaryArray)
     
-    console.log(finalArray)
+    // console.log("LA SFARSITUL FUNCTIEI AVEM:", finalArray)
     return finalArray
-   
   }
-  const finalArray = [generateNumberArray().color, generateNumberArray().suit, generateNumberArray().number]
-  console.log("final", finalArray)
 
+  // const finalArray = [generateNumberArray().color, generateNumberArray().suit, generateNumberArray().number]
+  const almostFinalArray = generateNumberArray()
+  const finalArray = [almostFinalArray.color, almostFinalArray.suit, almostFinalArray.number]
+  // console.log("final", finalArray, typeof finalArray)
+
+  // This function transfers the stored card details into the application's state.
   function assumeCard(finalArray){
+    console.log("FUNCTION ASSUME_CARD")
     setCardState( () => {
       return {color: finalArray[0], suit: finalArray[1], number: finalArray[2]}
     })
@@ -100,7 +104,7 @@ function App() {
       <div className = "app-container">
         <div className = "card-output">
           {/* <img src={require('./Components/images/Hearts.png')} height={"200"} width={"200"}/> */}
-          <SuitSelect props={ finalArray[1] } />
+          {/* <SuitSelect props={ finalArray[1] } /> */}
           <CardGen props={ finalArray }/>
           <p>{finalArray}</p>
         </div>
