@@ -101,13 +101,17 @@ function App() {
   }
 
   function saveCard(){
+    // const cardArray = {color: card.color, suit: card.suit, number: card.number}
     const cardArray = [card.color, card.suit, card.number]
     console.log("FUNCTION SAVE_CARD", cardArray)
     const id = cardStack.length
     console.log("CARD YOU ARE SAVING IS:")
     console.log("CARD", card)
     console.log("CARD_STACK", cardStack)
-    // setCardState(() => {return [...cardStack, card]})
+
+    setCardStackState(() => {return [...cardStack, cardArray]})
+    // setCardStackState(() => {return ([...cardStack, cardArray])})
+    // setCardState(() => {return [...cardStack, {color: card.color, suit: card.suit, number: card.numer}]})
 
     // setCardStackState( () => {
     //   return {cardStack: card}
@@ -130,7 +134,7 @@ function App() {
           <p>{"Culorile sunt:"}</p>
           <p>{ card.color }{ number }{ suit }</p>
           <p>{"Cardstack este:"}</p>
-          <p>{ cardStack }</p>
+          <p>{ cardStack.join(", ") }</p>
          
           <p></p>
           <p></p>
