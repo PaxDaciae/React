@@ -5,7 +5,7 @@ import SuitSelect from './SuitSelect';
    const color = props[0]
    const suit = props[1]
    const number = props[2]
-   // console.log(color)
+   // console.log("CARD_GEN_SUIT:", suit, props[0])
 
    
 
@@ -15,9 +15,6 @@ import SuitSelect from './SuitSelect';
    }
 
    const isBackgroundRed = isBackgroundColorRed(color)
-   // console.log(isBackgroundRed)
-
-   //  style = {{backgroundColor: `${color}`}}
 
    return (
    <div className = {isBackgroundRed? 'backgroundColor-red' : 'backgroundColor-black'}> 

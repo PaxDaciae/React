@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 
 const SuitSelect = ( {props} ) =>{
+    // console.log("SuitSel", props)
 
     function returnSuit(props){
         // console.log("props este ",props)
@@ -19,10 +20,3 @@ const SuitSelect = ( {props} ) =>{
 
 }
 export default SuitSelect
-
-/* 
- function  = React.createClass({
-    render: function(suit) {
-        return <img src = {'./Components/images' + suit + '.PNG'}></img>
-    }
-*/

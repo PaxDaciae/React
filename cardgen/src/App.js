@@ -1,13 +1,12 @@
 import './App.css';
 import { useState } from 'react'
 import CardGen from './Components/CardGen';
-// import SuitSelect from './Components/SuitSelect';
-// import Hearts from '/Components/images';
+
 
 function App() {
   // console.log("FUNCTION APP STARTS")
   
-  const [card, setCardState] = useState( {color: '', suit: '', number: 0} );  
+  const [card, setCardState] = useState( {color: 'Black', suit: 'Clubs', number: 2} );  
   const color = card.color;
   const suit = card.suit;
   const number = card.number;
@@ -90,9 +89,7 @@ function App() {
 
   const almostFinalArray = generateNumberArray();
   const finalArray = [almostFinalArray.color, almostFinalArray.suit, almostFinalArray.number]
-  // const finalArray = [generateNumberArray().color, generateNumberArray().suit, generateNumberArray().number]
-  
-  // console.log("final", finalArray, typeof finalArray)
+ 
 
   // This function transfers the stored card details into the application's state.
   function assumeCard(){
@@ -103,15 +100,25 @@ function App() {
    
   }
 
-  // function saveCard(){
-  //   console.log("SAVE_CARD")
-  //   const id = cardStack.length
-  //   console.log("CARD YOU ARE SAVING IS:")
+  function saveCard(){
+    const cardArray = [card.color, card.suit, card.number]
+    console.log("FUNCTION SAVE_CARD", cardArray)
+    const id = cardStack.length
+    console.log("CARD YOU ARE SAVING IS:")
+    console.log("CARD", card)
+    console.log("CARD_STACK", cardStack)
+    // setCardState(() => {return [...cardStack, card]})
 
-  //   setCardStackState(([...cardStack, {id, ...card}]))
-  //   console.log(cardStack)
-  // }
+    // setCardStackState( () => {
+    //   return {cardStack: card}
+    // })
+    
+    // (([...cardStack, {id, ...card}]))
+    console.log(cardStack)
+  }
 
+  const cardArray = [card.color, card.suit, card.number]
+  console.log("CARD_ARRAY", cardArray)
   
   return (
   <div className = "center-container">
@@ -119,11 +126,12 @@ function App() {
     <div>
       <div className = "app-container">
         <div className = "card-output">
-          {/* <img src={require('./Components/images/Hearts.png')} height={"200"} width={"200"}/> */}
-          {/* <SuitSelect props={ finalArray[1] } /> */}
-          <CardGen props = { card.color, card.suit, card.number } />
+          <CardGen props = { cardArray } />
+          <p>{"Culorile sunt:"}</p>
+          <p>{ card.color }{ number }{ suit }</p>
+          <p>{"Cardstack este:"}</p>
           <p>{ cardStack }</p>
-          <p>{ color }{ number }{ suit }</p>
+         
           <p></p>
           <p></p>
         </div>
@@ -132,11 +140,16 @@ function App() {
         </div>
       
       </div>
-     
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div className = "center-container">
         <button className = "button" onClick = { assumeCard }>Generate Card</button>
         <br />
-        {/* <button className = "button" onClick = { saveCard }>Save Card</button> */}
+        <button className = "button" onClick = { saveCard }>Save Card</button>
 
       </div>
     </div>
