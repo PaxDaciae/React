@@ -5,17 +5,13 @@ import CardGen from './Components/CardGen';
 // import Hearts from '/Components/images';
 
 function App() {
-  // console.log("FUNCTION APP STARTS")
+  console.log("FUNCTION APP STARTS")
   
   const [card, setCardState] = useState( {color: '', suit: '', number: 0} );  
-  const color = card.color;
-  const suit = card.suit;
-  const number = card.number;
-  const [cardStack, setCardStackState] = useState( [] )
  
   // This function returns a random number between 1 and "nr"
   function generateNumberArray() {
-    // console.log("FUNCTION GEN_NUMB_ARRAY")
+    console.log("FUNCTION GEN_NUMB_ARRAY")
     function generateNumber(nr) {
       const numberOut = (Math.floor(Math.random() * nr) + 1);
       return numberOut
@@ -88,31 +84,19 @@ function App() {
     return finalArray
   }
 
-  const almostFinalArray = generateNumberArray();
-  const finalArray = [almostFinalArray.color, almostFinalArray.suit, almostFinalArray.number]
   // const finalArray = [generateNumberArray().color, generateNumberArray().suit, generateNumberArray().number]
-  
+  const almostFinalArray = generateNumberArray()
+  const finalArray = [almostFinalArray.color, almostFinalArray.suit, almostFinalArray.number]
   // console.log("final", finalArray, typeof finalArray)
 
   // This function transfers the stored card details into the application's state.
-  function assumeCard(){
-    console.log("FUNCTION ASSUME_CARD", finalArray)
+  function assumeCard(finalArray){
+    console.log("FUNCTION ASSUME_CARD")
     setCardState( () => {
       return {color: finalArray[0], suit: finalArray[1], number: finalArray[2]}
     })
-   
   }
 
-  // function saveCard(){
-  //   console.log("SAVE_CARD")
-  //   const id = cardStack.length
-  //   console.log("CARD YOU ARE SAVING IS:")
-
-  //   setCardStackState(([...cardStack, {id, ...card}]))
-  //   console.log(cardStack)
-  // }
-
-  
   return (
   <div className = "center-container">
     <div className = "vertical-space" />
@@ -121,11 +105,8 @@ function App() {
         <div className = "card-output">
           {/* <img src={require('./Components/images/Hearts.png')} height={"200"} width={"200"}/> */}
           {/* <SuitSelect props={ finalArray[1] } /> */}
-          <CardGen props = { card.color, card.suit, card.number } />
-          <p>{ cardStack }</p>
-          <p>{ color }{ number }{ suit }</p>
-          <p></p>
-          <p></p>
+          <CardGen props={ finalArray }/>
+          <p>{finalArray}</p>
         </div>
         <div>
        
@@ -135,9 +116,6 @@ function App() {
      
       <div className = "center-container">
         <button className = "button" onClick = { assumeCard }>Generate Card</button>
-        <br />
-        {/* <button className = "button" onClick = { saveCard }>Save Card</button> */}
-
       </div>
     </div>
   </div>

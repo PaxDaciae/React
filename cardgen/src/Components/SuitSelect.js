@@ -3,7 +3,7 @@
 const SuitSelect = ( {props} ) =>{
 
     function returnSuit(props){
-        console.log("props este ",props)
+        // console.log("props este ",props)
         const path = (`./images/${props}.png`)
         return path
     }

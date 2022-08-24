@@ -5,7 +5,7 @@ import SuitSelect from './SuitSelect';
    const color = props[0]
    const suit = props[1]
    const number = props[2]
-   console.log(color)
+   // console.log(color)
 
    
 
