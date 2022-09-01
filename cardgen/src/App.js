@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react'
 import CardGen from './Components/CardGen';
+import StackGen from './Components/StackGen';
 
 
 function App() {
@@ -101,18 +102,18 @@ function App() {
   }
 
   function saveCard(){
-    // const cardArray = {color: card.color, suit: card.suit, number: card.number}
-    const cardArray = [card.color, card.suit, card.number]
-    console.log("FUNCTION SAVE_CARD", cardArray)
+    // const cardObject = {color: card.color, suit: card.suit, number: card.number}
     const id = cardStack.length
-    console.log("CARD YOU ARE SAVING IS:")
+    const cardObject = {id: id, color: card.color, suit: card.suit, number:card.number}
+    console.log("FUNCTION SAVE_CARD")
+    console.log("CARD YOU ARE SAVING IS:", cardObject)
     console.log("CARD", card)
     console.log("CARD_STACK", cardStack)
-
-    setCardStackState(() => {return [...cardStack, cardArray]})
-    // setCardStackState(() => {return ([...cardStack, cardArray])})
+  
+    setCardStackState(() => ([...cardStack, cardObject]))
+    // setCardStackState(() => {return ([...cardStack, cardObject])})
     // setCardState(() => {return [...cardStack, {color: card.color, suit: card.suit, number: card.numer}]})
-
+  
     // setCardStackState( () => {
     //   return {cardStack: card}
     // })
@@ -121,43 +122,38 @@ function App() {
     console.log(cardStack)
   }
 
-  const cardArray = [card.color, card.suit, card.number]
-  console.log("CARD_ARRAY", cardArray)
+  const cardObject = [card.color, card.suit, card.number]
+
+  function mapOut(object){
+    return (`Cartea nr ${object.id}: ${object.color}, ${object.number}, ${object.suit}`)
+  }
+  const stackDetails = cardStack.map(element => mapOut(element))
+
+  console.log("CRDSTK", cardStack)
   
   return (
   <div className = "center-container">
-    <div className = "vertical-space" />
-    <div>
+    {/* <div className = "vertical-space" /> */}
+
       <div className = "app-container">
+  
         <div className = "card-output">
-          <CardGen props = { cardArray } />
-          <p>{"Culorile sunt:"}</p>
-          <p>{ card.color }{ number }{ suit }</p>
-          <p>{"Cardstack este:"}</p>
-          <p>{ cardStack.join(", ") }</p>
-         
-          <p></p>
-          <p></p>
-        </div>
-        <div>
-       
-        </div>
-      
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <div className = "center-container">
-        <button className = "button" onClick = { assumeCard }>Generate Card</button>
-        <br />
-        <button className = "button" onClick = { saveCard }>Save Card</button>
+
+          <div className = "center-container">
+            <button className = "button" onClick = { assumeCard }>Generate Card</button>
+            <br />
+            <button className = "button" onClick = { saveCard }>Save Card</button>
+          </div>
+
+          <CardGen props = { cardObject } />
+          {/* <p className = "output-Text">{"Culorile sunt:"}</p> */}
+          {/* <p className = "output-Text bordered">{ card.color }{ number }{ suit }</p> */}
+          <p className = "output-Text">{"Cardstack este:"}</p>
+          <div className = "output-Text card-stack">{ <StackGen props={ cardStack }/> }</div>
+        </div>   
 
       </div>
     </div>
-  </div>
   );
 }
 

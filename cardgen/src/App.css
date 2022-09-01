@@ -10,7 +10,7 @@ body {
 }
 
 .vertical-space {
-    height: 20vh;
+    height: 10vh;
 }
 .app-container {
 
@@ -29,8 +29,14 @@ body {
 .center-container {
     text-align: center;
 }
+
 .button {
-    /* margin: auto; */
+    padding:10px;
+    font-size:20px;
+    margin-left: -150px;
+    width: 500px;
+    color:white;
+    background-color:black;
 }
 
 .card-output {
@@ -42,8 +48,19 @@ body {
 
 } 
 
-.cardMargin {
+.card-stack {
+    text-align: center;
+}
 
+.output-Text {
+    margin-left: -110px;
+    width: 400px;
+}
+
+
+.bordered {
+    border-style: solid;
+    border-width: 1px;
 }
 
 .backgroundColor-red {
@@ -58,6 +75,7 @@ body {
 
     margin:auto;
 }
+
 .backgroundColor-black {
     background-color: white;
     min-height:100%;
@@ -69,4 +87,29 @@ body {
     border-radius: 10px;
 
     margin:auto;
+}
+
+.stack-flex-holder{
+    margin-left: -200px;
+    display:flex;
+    width: 60vw;
+    /* height:10vh; */
+    justify-content: left;
+    align-items:top;
+    flex-flow: row wrap;
+    gap:-50px;
+}
+
+.flex-component{
+    height:20px;
+    width: 60px;
+    margin-left: -40px;
+    z-index: 0;
+    /* background-color:black; */
+    /* color:white; */
+} 
+
+.isHovering {
+    z-index: 10;
+    text: blue
 }
