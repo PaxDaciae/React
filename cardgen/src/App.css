@@ -90,7 +90,8 @@ body {
 }
 
 .stack-flex-holder{
-    margin-left: -200px;
+    position: relative;
+    margin: auto;
     display:flex;
     width: 60vw;
     /* height:10vh; */
@@ -98,13 +99,14 @@ body {
     align-items:top;
     flex-flow: row wrap;
     gap:-50px;
+    z-index: -1;
 }
 
 .flex-component{
-    height:20px;
-    width: 60px;
-    margin-left: -40px;
-    z-index: 0;
+    height:90px;
+    width: 70px;
+    margin: auto;
+    z-index: 10;
     /* background-color:black; */
     /* color:white; */
 } 

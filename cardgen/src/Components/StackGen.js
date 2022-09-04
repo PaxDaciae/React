@@ -7,23 +7,21 @@ function StackGen( {props} ) {
     const [isHovering, setIsHovering] = useState(false)
     // onMouseEnter = {style:} onMouseLeave = {}
     
-    function handleMouseEnter(e) {
-        console.log("ENTER", e.target)
-        setIsHovering(true)
-    }
+    
 
     console.log("PROPS", props, "PROPS_ID", props.id)
     return (
        
         <div className = "stack-flex-holder">
+            
             {props.map((props) => (
-                <div key = {props.id} className = {`flex-component ${isHovering? "":"isHovering"}`} onMouseEnter = { handleMouseEnter }>
-                    <div>
-                    <CardGen props = { [props.color, props.suit, props.number] } />
-                    </div>
+                <div className = {`flex-component id:${props.id}`}>
+                    <div key = {props.id} className = {`flex-component ${isHovering? "":"isHovering"}`} >
+                        <CardGen props = { [props.color, props.suit, props.number] } />
+                    </div> 
                 </div>
- 
             ))}
+            
         </div>
     )
 

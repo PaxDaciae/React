@@ -17,18 +17,16 @@ import SuitSelect from './SuitSelect';
    const isBackgroundRed = isBackgroundColorRed(color)
 
    return (
+      <div>
       <div className = {isBackgroundRed? 'backgroundColor-red' : 'backgroundColor-black'}> 
-         <p>
-            <br />
-            {color}
-            {/* {props} */}
-         </p>
+         
            
          <SuitSelect props={ suit } />
             
          <p>
             {number}
          </p>
+      </div>
       </div>
    
    )

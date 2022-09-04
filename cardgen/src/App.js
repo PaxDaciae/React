@@ -129,9 +129,15 @@ function App() {
   }
   const stackDetails = cardStack.map(element => mapOut(element))
 
+  function handleMouseEnter(e) {
+    console.log("ENTER", e.target)
+    // setIsHovering(true)
+}
+
   console.log("CRDSTK", cardStack)
   
   return (
+    <div>
   <div className = "center-container">
     {/* <div className = "vertical-space" /> */}
 
@@ -149,10 +155,14 @@ function App() {
           {/* <p className = "output-Text">{"Culorile sunt:"}</p> */}
           {/* <p className = "output-Text bordered">{ card.color }{ number }{ suit }</p> */}
           <p className = "output-Text">{"Cardstack este:"}</p>
-          <div className = "output-Text card-stack">{ <StackGen props={ cardStack }/> }</div>
+          
         </div>   
 
       </div>
+    </div>
+    <div className ="stack-flex-holder">
+      <div className = "output-Text card-stack" onMouseEnter = { handleMouseEnter }>{ <StackGen props={ cardStack }/> }</div>
+    </div>
     </div>
   );
 }
