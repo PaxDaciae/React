@@ -127,7 +127,6 @@ function App() {
   function mapOut(object){
     return (`Cartea nr ${object.id}: ${object.color}, ${object.number}, ${object.suit}`)
   }
-  const stackDetails = cardStack.map(element => mapOut(element))
 
   function handleMouseEnter(e) {
     console.log("ENTER", e.target)
@@ -138,31 +137,37 @@ function App() {
   
   return (
     <div>
-  <div className = "center-container">
-    {/* <div className = "vertical-space" /> */}
+      <div className = "center-container">
 
-      <div className = "app-container">
-  
-        <div className = "card-output">
+        <div className = "app-container">   
 
           <div className = "center-container">
+            
             <button className = "button" onClick = { assumeCard }>Generate Card</button>
-            <br />
+              <br />
             <button className = "button" onClick = { saveCard }>Save Card</button>
+        
+          </div>
+          
+          <div className = "card-output">           
+            <CardGen props = { cardObject } />
+            {/* <p className = "output-Text">{"Culorile sunt:"}</p> */}
+            {/* <p className = "output-Text bordered">{ card.color }{ number }{ suit }</p> */}
           </div>
 
-          <CardGen props = { cardObject } />
-          {/* <p className = "output-Text">{"Culorile sunt:"}</p> */}
-          {/* <p className = "output-Text bordered">{ card.color }{ number }{ suit }</p> */}
-          <p className = "output-Text">{"Cardstack este:"}</p>
-          
-        </div>   
 
+          <p className = "output-Text">{"Cardstack este:"}</p>
+
+          <div className ="stack-flex-holder">
+          <div className = "output-Text card-stack">{ <StackGen props={ cardStack }/> }</div>
+
+            {/* <div className = "output-Text card-stack" onMouseEnter = { handleMouseEnter }>{ <StackGen props={ cardStack }/> }</div> */}
+          </div>
+        </div>
       </div>
-    </div>
-    <div className ="stack-flex-holder">
-      <div className = "output-Text card-stack" onMouseEnter = { handleMouseEnter }>{ <StackGen props={ cardStack }/> }</div>
-    </div>
+
+      
+
     </div>
   );
 }

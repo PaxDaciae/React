@@ -1,0 +1,88 @@
+body {
+    font-family: "Akshar", cursive;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.email-link {
+    font-size: 15px;
+}
+.background-gradient {
+    background: linear-gradient(90deg, rgba(249,200,1,1) 0%, rgba(250,250,250,1) 10%, rgba(251,251,251,1) 90%, rgba(249,200,1,1) 100%);
+}
+
+.splash-text {
+    font-size: 20px;
+}
+.page-header {
+    /* background-color:yellow; */
+    width:99vw;
+}
+.header-text {
+    font-size:45px;
+    font-weight:700;
+}
+.header-div {
+    margin: 20px;
+    padding:20px; 
+}
+.center-all-page {
+    /* margin: auto;
+    width: 50vw; */
+    text-align:center;
+}
+.center {
+    margin: auto;
+    width: 50vw;
+    text-align:center;
+  
+}
+.all-screen {
+    height: 60vh;
+    /* background-color: blue; */
+}
+.experience-block {
+    background-color: blue;
+}
+.vertical-center {
+    display: table-cell;
+    height: 50vh;
+    vertical-align: middle;
+}
+
+.avatar-picture {
+    width: 200px;
+    height: 200px;
+    object-fit: none;
+    object-position: 60% 0;
+    border-radius:90%;
+}
+
+#section-line {
+    border-top:2px dashed black;
+}
+
+.animation-context {
+    width: 90vw;
+    position:absolute;
+    z-index: -10;
+}
+.dot {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(249,200,1,1);
+    border-radius: 50%;
+    position: relative;
+    /* z-index:-1; */
+    animation-name: bubble;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0, 0.6, 0.85, 1);
+}
+
+
+@keyframes bubble {
+    0% {left: -10%; opacity: 1;}
+    /* 50% {left: 50%; opacity: 0.5;} */
+    100% {left: 90%; opacity: 0;}
+}

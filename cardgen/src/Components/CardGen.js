@@ -16,17 +16,22 @@ import SuitSelect from './SuitSelect';
 
    const isBackgroundRed = isBackgroundColorRed(color)
 
+   function pickColor() {
+      return (isBackgroundRed? "backgroundColor-red" : "backgroundColor-black")
+   }
+
    return (
       <div>
-      <div className = {isBackgroundRed? 'backgroundColor-red' : 'backgroundColor-black'}> 
+         <div className = {`card-output ${pickColor()}`}> 
          
-           
-         <SuitSelect props={ suit } />
+            <div className = {"card-interior"}>
+               <SuitSelect props={ suit } />
             
-         <p>
-            {number}
-         </p>
-      </div>
+               <h1>
+                  {number}
+               </h1>
+            </div>
+         </div>
       </div>
    
    )
